@@ -22,21 +22,18 @@ import java.util.ArrayList;
 class Sticker implements Parcelable {
     String imageFileName;
     List<String> emojis;
-    Boolean isAnimated;
     long size;
 
 
     Sticker(String imageFileName, List<String> emojis) {
         this.imageFileName = imageFileName;
         this.emojis = emojis;
-        this.isAnimated = true;
     }
 
     protected Sticker(Parcel in) {
         Log.v("ReactNative","Sticker Constructor triggered....!"); //ksr
         imageFileName = in.readString();
         emojis = in.createStringArrayList();
-        isAnimated = in.readByte() != 0;;
         size = in.readLong();
     }
 
